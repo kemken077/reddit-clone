@@ -7,11 +7,18 @@ const AuthButtons: React.FC = () => {
       <Button
         variant="outline"
         height="28px"
-        display={{ base: 'none', sm: 'flex' }}
-        width={{ base: '70px', md: '110px' }}
+        display={{ base: "none", sm: "flex" }}
+        width={{ base: "70px", md: "110px" }}
         mr={2}
-        ml={2}>{'Log In'}</Button>
-      <Button height="28px">{'Sign Up'}</Button>
+        ml={2}
+        onClick={() => { console.log('click login') }}>{'Log In'}</Button>
+      <Button
+        height="28px"
+        display={{ base: "none", sm: "flex" }}
+        width={{ base: "70px", md: "110px" }}
+        mr={2}
+        ml={2}
+        onClick={() => { console.log('click sign up') }}>{'Sign Up'}</Button>
     </>
   );
 };
