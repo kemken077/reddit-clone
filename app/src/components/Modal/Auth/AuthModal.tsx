@@ -1,34 +1,37 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Box, Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter, useDisclosure } from '@chakra-ui/react';
+import { authModalState } from '@/atoms/authModalAtom';
+import { Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter, useDisclosure, Flex } from '@chakra-ui/react';
 import React from 'react';
+import { useRecoilState } from 'recoil';
 
 const AuthModal:React.FC = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
-  const finalRef = React.useRef(null)
-
+  const [modalState, setModalState] = useRecoilState(authModalState);
+  const handleClose = () => {
+    setModalState(prev => ({
+      ...prev,
+      open: false,
+    }));
+  };
   return (
     <>
-      <Box ref={finalRef} tabIndex={-1} aria-label='Focus moved to this box'>
-        Some other content that'll receive focus on close.
-      </Box>
-
-      <Button mt={4} onClick={onOpen}>
-        Open Modal
-      </Button>
-      <Modal finalFocusRef={finalRef} isOpen={isOpen} onClose={onClose}>
+      <Modal isOpen={modalState.open} onClose={handleClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Modal Title</ModalHeader>
+          <ModalHeader>
+            {modalState.view === 'login' && 'Login'}
+            {modalState.view === 'signup' && 'Sign Up'}
+            {modalState.view === 'resetPassword' && 'Reset Password'}
+          </ModalHeader>
           <ModalCloseButton />
-          <ModalBody>
+          <ModalBody 
+            display='flex'
+            flexDirection='column'
+            alignItems='center' 
+            justifyContent='center'>
+              <Flex direction='column' align='center' justify='center' width='70%'>
+                
+              </Flex>
           </ModalBody>
-
-          <ModalFooter>
-            <Button colorScheme='blue' mr={3} onClick={onClose}>
-              Close
-            </Button>
-            <Button variant='ghost'>Secondary Action</Button>
-          </ModalFooter>
         </ModalContent>
       </Modal>
     </>
