@@ -99,7 +99,7 @@ const SignUp:React.FC<SignUpProps> = () => {
         _hover={{
           opacity: .9,
         }}>
-        Log In
+        SIGN UP
       </Button>
       <Flex fontSize='9pt' justifyContent='center'>
         <Text mr={1}>Already a redditor?</Text>

@@ -4,6 +4,7 @@ import { Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, Modal
 import React from 'react';
 import { useRecoilState } from 'recoil';
 import AuthInputs from './AuthInputs';
+import OAuthButtons from './OAuthButtons';
 
 const AuthModal:React.FC = () => {
   const [modalState, setModalState] = useRecoilState(authModalState);
@@ -31,7 +32,7 @@ const AuthModal:React.FC = () => {
             justifyContent='center'
             pb={6}>
               <Flex direction='column' align='center' justify='center' width='70%'>
-                {/* <OAuthButtons /> */}
+                <OAuthButtons />
                 <AuthInputs />
                 {/* <ResetPassword /> */}
               </Flex>
