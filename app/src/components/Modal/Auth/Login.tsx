@@ -1,4 +1,4 @@
-import { Button, Input } from '@chakra-ui/react';
+import { Button, Flex, Input, Text } from '@chakra-ui/react';
 import React, { useState } from 'react';
 
 type LoginProps = {
@@ -63,7 +63,13 @@ const Login:React.FC<LoginProps> = () => {
           borderColor: 'blue.500',
         }}
         bg='gray.50' />
-      <Button width={'100%'} height={'36px'} mt={2} type={'submit'}>Log In</Button>
+      <Button width={'100%'} height={'36px'} mt={2} mb={2} type={'submit'}>
+        Log In
+      </Button>
+      <Flex fontSize='9pt' justifyContent='center'>
+        <Text mr={1}>New here?</Text>
+        <Text color='blue.500' fontWeight={700} cursor='pointer'>SIGN UP</Text>
+      </Flex>
     </form>
   );
 }
